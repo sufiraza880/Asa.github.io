@@ -242,6 +242,7 @@ body{
   font-weight: 600;
   white-space: nowrap;
   animation: fadeNames 6s infinite ease-in-out;
+  padding:2px 3px 2px 3px;
 }
 
 .random-names span {
