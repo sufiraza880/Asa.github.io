@@ -251,7 +251,7 @@ body{
   border-radius: 8px;
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(4px);
-  padding:2px 3px 2px 3px;
+  padding:2px 5px 2px 5px;
 }
 
 /* Animation for soft glowing effect */
