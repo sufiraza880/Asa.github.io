@@ -1,262 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sufiyan Raza — Portfolio</title>
-  <meta name="description" content="Sufiyan Raza — Software engineer / Student. Projects, skills, contact." />
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
-  <!-- Favicon (optional) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>SR</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Building Project - Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-  <div class="container header-inner">
-
-    <a class="logo" href="#home">Sufiyan<span class="accent">R</span></a>
-
-    <!-- NEW: Random Names Row -->
-    <div class="random-names">
-      <span>Arjun</span>
-      <span>Meera</span>
-      <span>Kabir</span>
-      <span>Anika</span>
-      <span>Rohan</span>
-    </div>
-
-    <nav class="nav" id="nav">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-      <a class="cta" href="https://github.com/your-username" target="_blank" rel="noopener">View GitHub</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">CityScape</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="member1.html">Member 1</a></li>
+                <li><a href="member2.html">Member 2</a></li>
+                <li><a href="member3.html">Member 3</a></li>
+                <li><a href="member4.html">Member 4</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
-
-  </div>
-</header>
-
-
-  <main>
-    <!-- Hero -->
-    <section id="home" class="hero">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <h1>Hi — I'm <span class="name-highlight">Sufiyan Raza</span></h1>
-          <p class="lead">Engineering student &amp; software developer. I build web apps, compiler tools, and love algorithms & cricket ⚾🏏.</p>
-          <div class="hero-actions">
-            <a class="btn" href="#projects">See projects</a>
-            <a class="btn ghost" href="#contact">Get in touch</a>
-          </div>
-
-          <ul class="meta-list">
-            <li><strong>Location:</strong> India</li>
-            <li><strong>Role:</strong> Engineering Student · Full-stack learner</li>
-            <li><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></li>
-          </ul>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Building Tomorrow's City</h1>
+            <p class="fade-in-delay">A Revolutionary Urban Planning Project</p>
+            <a href="about.html" class="cta-button">Explore Our Vision</a>
         </div>
-
-        <div class="hero-card">
-          <!-- Replace the placeholder with your portrait image if you want -->
-          <div class="avatar" aria-hidden="true">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="g" x1="0" x2="1">
-                  <stop offset="0" stop-color="#6C5CE7" />
-                  <stop offset="1" stop-color="#00BFA6" />
-                </linearGradient>
-              </defs>
-              <rect width="200" height="200" rx="18" fill="url(#g)"/>
-              <text x="50%" y="58%" font-size="60" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif">SR</text>
-            </svg>
-          </div>
-
-          <div class="hero-stats">
-            <div>
-              <span class="stat-num">8+</span>
-              <span class="stat-label">Projects</span>
-            </div>
-            <div>
-              <span class="stat-num">3</span>
-              <span class="stat-label">Languages</span>
-            </div>
-            <div>
-              <span class="stat-num">2</span>
-              <span class="stat-label">Competitions</span>
-            </div>
-          </div>
-        </div>
-      </div>
+        <div class="hero-overlay"></div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section container">
-      <h2 class="section-title">About</h2>
-      <div class="about-grid">
-        <div>
-          <p>I’m an engineering student with a passion for compilers, data structures, and full-stack web development. I enjoy turning ideas into working software—whether that means building a small UI, implementing parsing algorithms, or optimizing code.</p>
-          <p>Outside coding, I play cricket and enjoy algorithm puzzles. I’m currently studying and building projects to showcase here and on GitHub.</p>
-        </div>
-        <div class="tech-quote">
-          <strong>Currently learning</strong>
-          <ul>
-            <li>Advanced Compiler Techniques</li>
-            <li>TypeScript + React</li>
-            <li>System design basics</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="section container">
-      <h2 class="section-title">Projects</h2>
-      <p class="muted">A selection of projects — click to open the GitHub repo or live demo.</p>
-
-      <div class="projects-grid">
-        <!-- Project card 1 -->
-        <article class="project-card">
-          <div class="project-top">
-            <h3 class="project-title">Compiler-Lab (Mini Compiler)</h3>
-            <p class="project-desc">Lexer + Parser + Codegen for a toy language. Implemented lexical analysis and parse tree visualization.</p>
-          </div>
-          <div class="project-meta">
-            <div class="tags"><span>C++</span><span>Flex/Bison</span><span>Parsing</span></div>
-            <div class="project-links">
-              <a href="https://github.com/your-username/compiler-lab" target="_blank" rel="noopener">GitHub</a>
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="card-icon">👤</div>
+                    <h3>Team Member 1</h3>
+                    <p class="role">Project Lead</p>
+                    <p>Leading the architectural design and urban planning aspects of our city project.</p>
+                    <a href="member1.html" class="learn-more">View Profile →</a>
+                </div>
+                <div class="team-card">
+                    <div class="card-icon">👤</div>
+                    <h3>Team Member 2</h3>
+                    <p class="role">Infrastructure Specialist</p>
+                    <p>Managing transportation systems and utility infrastructure development.</p>
+                    <a href="member2.html" class="learn-more">View Profile →</a>
+                </div>
+                <div class="team-card">
+                    <div class="card-icon">👤</div>
+                    <h3>Team Member 3</h3>
+                    <p class="role">Sustainability Officer</p>
+                    <p>Ensuring eco-friendly practices and green building implementations.</p>
+                    <a href="member3.html" class="learn-more">View Profile →</a>
+                </div>
+                <div class="team-card">
+                    <div class="card-icon">👤</div>
+                    <h3>Team Member 4</h3>
+                    <p class="role">Technology Integrator</p>
+                    <p>Implementing smart city solutions and digital infrastructure.</p>
+                    <a href="member4.html" class="learn-more">View Profile →</a>
+                </div>
             </div>
-          </div>
-        </article>
+        </div>
+    </section>
 
-        <!-- Project card 2 -->
-        <article class="project-card">
-          <div class="project-top">
-            <h3 class="project-title">StudyHub (React App)</h3>
-            <p class="project-desc">A lightweight study-notes app with tagging and offline storage. Demo hosted on GitHub Pages.</p>
-          </div>
-          <div class="project-meta">
-            <div class="tags"><span>React</span><span>TypeScript</span><span>Netlify</span></div>
-            <div class="project-links">
-              <a href="https://github.com/your-username/studyhub" target="_blank" rel="noopener">GitHub</a>
-              <a href="https://your-username.github.io/studyhub" target="_blank" rel="noopener">Live</a>
+    <section class="instructor-section">
+        <div class="container">
+            <div class="instructor-card">
+                <div class="instructor-header">
+                    <div class="instructor-icon">🎓</div>
+                    <div>
+                        <h2>Course Instructor</h2>
+                        <p class="instructor-title">Professor/Dr. [Instructor Name]</p>
+                    </div>
+                </div>
+                <div class="instructor-content">
+                    <p>Under the guidance of our esteemed course instructor, our team has developed comprehensive skills in urban planning, architectural design, and sustainable development. Their expertise in city infrastructure and modern planning techniques has been instrumental in shaping our project vision.</p>
+                    <div class="instructor-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Specialization:</span>
+                            <span>Urban Planning & Design</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Experience:</span>
+                            <span>15+ Years in Academia</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Course:</span>
+                            <span>Advanced City Development</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </article>
-
-        <!-- Project card 3 -->
-        <article class="project-card">
-          <div class="project-top">
-            <h3 class="project-title">Algo-Visualizer</h3>
-            <p class="project-desc">Visualizations for sorting and graph algorithms with step-by-step playback and explanations.</p>
-          </div>
-          <div class="project-meta">
-            <div class="tags"><span>JS</span><span>Canvas</span><span>Algorithms</span></div>
-            <div class="project-links">
-              <a href="https://github.com/your-username/algo-visualizer" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Add more project-card blocks as needed -->
-      </div>
+        </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="section container">
-      <h2 class="section-title">Skills</h2>
-      <div class="skill-grid">
-        <div class="skill">
-          <h4>Languages</h4>
-          <p> C++, Java, JavaScript/TypeScript, Python </p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CityScape Project. All rights reserved.</p>
         </div>
-        <div class="skill">
-          <h4>Web</h4>
-          <p> HTML5, CSS3, React, REST APIs, Git, GitHub Pages </p>
-        </div>
-        <div class="skill">
-          <h4>Systems</h4>
-          <p> Compiler theory, Lexing & Parsing, Data Structures & Algorithms </p>
-        </div>
-        <div class="skill">
-          <h4>Tools</h4>
-          <p> VSCode, gdb, Make, Docker (basic) </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section container contact-section">
-      <h2 class="section-title">Contact</h2>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Let's collaborate</h3>
-          <p>If you'd like to discuss a project, internship or anything geeky — email me.</p>
-          <p><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-          <p><strong>GitHub:</strong> <a href="https://github.com/your-username" target="_blank" rel="noopener">github.com/your-username</a></p>
-          <p><strong>Location:</strong> India</p>
-        </div>
-
-        <form action="mailto:youremail@example.com" method="post" enctype="text/plain" class="contact-form">
-          <label>
-            <span>Name</span>
-            <input type="text" name="name" required placeholder="Your name">
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" required placeholder="you@example.com">
-          </label>
-          <label>
-            <span>Message</span>
-            <textarea name="message" rows="6" required placeholder="Short message..."></textarea>
-          </label>
-          <div class="form-actions">
-            <button class="btn" type="submit">Send</button>
-            <button class="btn ghost" type="reset">Reset</button>
-          </div>
-          <small class="muted">Or just email me at <a href="mailto:youremail@example.com">youremail@example.com</a>.</small>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Sufiyan Raza — Built with ❤ · <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a></p>
-      <div class="socials">
-        <a href="https://github.com/your-username" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
-        <a href="https://www.linkedin.com/in/your-username" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // small UI script for mobile nav & year
-    (function(){
-      const navToggle = document.getElementById('nav-toggle');
-      const nav = document.getElementById('nav');
-
-      navToggle.addEventListener('click', () => {
-        nav.classList.toggle('open');
-        navToggle.classList.toggle('open');
-      });
-
-      // Close nav when a link is clicked (mobile)
-      document.querySelectorAll('#nav a').forEach(a => {
-        a.addEventListener('click', () => {
-          nav.classList.remove('open');
-          navToggle.classList.remove('open');
-        });
-      });
-
-      // set year
-      document.getElementById('year').textContent = new Date().getFullYear();
-    })();
-  </script>
+    </footer>
 </body>
 </html>
