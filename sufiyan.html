@@ -1,1 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sufiyan Raza — Portfolio</title>
+  <meta name="description" content="Sufiyan Raza — Software engineer / Student. Projects, skills, contact." />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>SR</text></svg>">
+  <style>
+    /* styles.css — separate file */
+/* Variables & base */
+:root{
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #9aa4b2;
+  --accent: #6C5CE7;
+  --accent-2: #00BFA6;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --container: 1100px;
+  --max-width: 1200px;
+  --gap: 1.25rem;
+  --transition: 220ms cubic-bezier(.2,.9,.3,1);
+  color-scheme: dark;
+}
 
+* {box-sizing: border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #071021 0%, #071826 100%);
+  color:#e6eef8;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  font-size:16px;
+}
+
+/* Container utility */
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header */
+.site-header{
+  position: sticky;
+  top:0;
+  z-index:40;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(7,10,15,0.6), rgba(7,10,15,0.25));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:0.75rem 0;
+}
+
+/* Logo */
+.logo{
+  font-weight:700;
+  text-decoration:none;
+  color:inherit;
+  font-size:1.15rem;
+  letter-spacing:0.2px;
+}
+.logo .accent{ color: var(--accent) }
+
+/* Nav */
+.nav{
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+}
+.nav a{
+  color:var(--muted);
+  text-decoration:none;
+  padding:0.5rem 0.6rem;
+  border-radius:8px;
+  transition:var(--transition);
+  font-weight:600;
+  font-size:0.95rem;
+}
+.nav a:hover{ color:#fff; background:var(--glass) }
+.nav a.cta{
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#fff;
+  padding:0.5rem 0.9rem;
+  border-radius:12px;
+  box-shadow: 0 6px 20px rgba(108,92,231,0.12);
+}
+.nav-toggle{
+  display:none;
+  background:none;
+  border:0;
+  width:40px;
+  height:40px;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+/* hamburger */
+.nav-toggle span{
+  display:block;
+  width:18px;
+  height:2px;
+  background:var(--muted);
+  margin:3px 0;
+  border-radius:2px;
+  transition:var(--transition);
+}
+.nav-toggle.open span:nth-child(1){ transform: translateY(6px) rotate(45deg) }
+.nav-toggle.open span:nth-child(2){ opacity:0 }
+.nav-toggle.open span:nth-child(3){ transform: translateY(-6px) rotate(-45deg) }
+
+/* Hero */
+.hero{
+  padding: clamp(2rem, 4vw, 4rem) 0;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap: clamp(1rem, 3vw, 2.25rem);
+  align-items:center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.hero-text h1{
+  margin:0 0 0.5rem;
+  font-size: clamp(1.6rem, 3.6vw, 2.25rem);
+  line-height:1.05;
+}
+.name-highlight{ background: linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:800; }
+.lead{ margin:0 0 1rem; color:var(--muted) }
+
+.hero-actions{ display:flex; gap:0.6rem; margin-bottom:1rem }
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  padding:0.6rem 0.9rem;
+  border-radius:10px;
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:white;
+  font-weight:600;
+  transition: transform var(--transition);
+}
+.btn:hover{ transform: translateY(-4px) }
+.btn.ghost{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  color:var(--muted);
+}
+
+.meta-list{
+  list-style:none;
+  padding:0;
+  margin:0.25rem 0 0;
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  color:var(--muted);
+}
+.meta-list li{ font-size:0.95rem }
+
+/* Hero card */
+.hero-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  padding:1.1rem;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.7);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.avatar svg{ width:100%; height:auto; border-radius:10px; display:block; }
+
+/* stats */
+.hero-stats{ display:flex; gap:1rem; justify-content:space-between; margin-top:1rem; color:var(--muted) }
+.stat-num{ display:block; font-size:1.15rem; font-weight:700; color:#fff }
+.stat-label{ font-size:0.85rem; color:var(--muted) }
+
+/* Sections */
+.section{ padding:2.25rem 0 }
+.section-title{ margin:0 0 0.6rem; font-size:1.25rem; color:#fff }
+
+/* About */
+.about-grid{ display:grid; grid-template-columns: 1fr 280px; gap:1.25rem; align-items:start }
+.tech-quote{ background:var(--glass); padding:1rem; border-radius:10px; color:var(--muted) }
+
+/* Projects grid */
+.projects-grid{
+  margin-top:1rem;
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap:1rem;
+}
+.project-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:1rem;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.03);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.project-card:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(2,6,23,0.6) }
+.project-title{ margin:0 0 0.25rem; font-size:1rem }
+.project-desc{ margin:0 0 0.75rem; color:var(--muted); font-size:0.95rem }
+.project-meta{ display:flex; justify-content:space-between; align-items:center; gap:1rem }
+.tags span{ display:inline-block; background:rgba(255,255,255,0.03); padding:0.25rem 0.45rem; border-radius:8px; font-size:0.82rem; color:var(--muted); margin-right:6px }
+
+/* Skills */
+.skill-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1rem }
+.skill{ background:var(--glass); padding:0.9rem; border-radius:10px; color:var(--muted) }
+
+/* Contact */
+.contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:1rem; align-items:start }
+.contact-card{ background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:1rem; border-radius:10px }
+.contact-form{ background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01)); padding:1rem; border-radius:10px; border:1px solid rgba(255,255,255,0.02) }
+.contact-form label{ display:block; margin-bottom:0.7rem; color:var(--muted); font-size:0.92rem }
+.contact-form input, .contact-form textarea{
+  width:100%;
+  padding:0.6rem;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.03);
+  background:transparent;
+  color:inherit;
+  font-size:0.95rem;
+}
+.form-actions{ display:flex; gap:0.6rem; margin-top:0.5rem }
+
+/* Footer */
+.site-footer{
+  margin-top:2rem;
+  border-top:1px solid rgba(255,255,255,0.02);
+  padding:1rem 0;
+  color:var(--muted);
+}
+.footer-inner{ display:flex; justify-content:space-between; gap:1rem; align-items:center }
+
+/* Muted utility */
+.muted{ color:var(--muted) }
+/* RANDOM NAMES BAR INSIDE HEADER */
+.random-names {
+  display: flex;
+  gap: 0.75rem;
+  margin: 0 1rem;
+  font-size: 0.9rem;
+  color: var(--accent-2);
+  font-weight: 600;
+  white-space: nowrap;
+  animation: fadeNames 6s infinite ease-in-out;
+  
+}
+
+.random-names span {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(4px);
+  padding:2px 5px 2px 5px;
+}
+
+/* Animation for soft glowing effect */
+@keyframes fadeNames {
+  0%   { opacity: .8 }
+  50%  { opacity: 1 }
+  100% { opacity: .8 }
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+  .random-names {
+    display: none; /* hide names on mobile for clean layout */
+  }
+}
+
+
+/* Responsive */
+@media (max-width: 960px){
+  .hero-grid{ grid-template-columns: 1fr 260px }
+  .about-grid{ grid-template-columns: 1fr }
+  .contact-grid{ grid-template-columns: 1fr }
+}
+
+@media (max-width: 720px){
+  .nav{ display:none; position: absolute; right: 1rem; top: 64px; background: rgba(7,10,15,0.95); padding:1rem; border-radius:10px; flex-direction:column; min-width:180px; box-shadow:0 8px 30px rgba(2,6,23,0.6) }
+  .nav.open{ display:flex; }
+  .nav a{ color:var(--muted); padding:0.6rem 0; display:block }
+  .nav-toggle{ display:flex }
+  .hero-grid{ grid-template-columns: 1fr; }
+  .hero-card{ order: -1; margin-bottom:1rem }
+  .header-inner{ padding:0.5rem 1rem }
+}
+
+/* small tweaks */
+a { color: var(--accent-2) }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="#home">Sufiyan<span class="accent">R</span></a>
+
+    <!-- NEW: Random Names Row -->
+    <div class="random-names">
+      <span>Arjun</span>
+      <span>Meera</span>
+      <span>Kabir</span>
+      <span>Anika</span>
+      <span>Rohan</span>
+    </div>
+
+    <nav class="nav" id="nav">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="https://github.com/your-username" target="_blank" rel="noopener">View GitHub</a>
+    </nav>
+
+    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+</header>
+
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Hi — I'm <span class="name-highlight">Sufiyan Raza</span></h1>
+          <p class="lead">Engineering student &amp; software developer. I build web apps, compiler tools, and love algorithms & cricket ⚾🏏.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#projects">See projects</a>
+            <a class="btn ghost" href="#contact">Get in touch</a>
+          </div>
+
+          <ul class="meta-list">
+            <li><strong>Location:</strong> India</li>
+            <li><strong>Role:</strong> Engineering Student · Full-stack learner</li>
+            <li><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <!-- Replace the placeholder with your portrait image if you want -->
+          <div class="avatar" aria-hidden="true">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="g" x1="0" x2="1">
+                  <stop offset="0" stop-color="#6C5CE7" />
+                  <stop offset="1" stop-color="#00BFA6" />
+                </linearGradient>
+              </defs>
+              <rect width="200" height="200" rx="18" fill="url(#g)"/>
+              <text x="50%" y="58%" font-size="60" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif">SR</text>
+            </svg>
+          </div>
+
+          <div class="hero-stats">
+            <div>
+              <span class="stat-num">8+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div>
+              <span class="stat-num">3</span>
+              <span class="stat-label">Languages</span>
+            </div>
+            <div>
+              <span class="stat-num">2</span>
+              <span class="stat-label">Competitions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section container">
+      <h2 class="section-title">About</h2>
+      <div class="about-grid">
+        <div>
+          <p>I’m an engineering student with a passion for compilers, data structures, and full-stack web development. I enjoy turning ideas into working software—whether that means building a small UI, implementing parsing algorithms, or optimizing code.</p>
+          <p>Outside coding, I play cricket and enjoy algorithm puzzles. I’m currently studying and building projects to showcase here and on GitHub.</p>
+        </div>
+        <div class="tech-quote">
+          <strong>Currently learning</strong>
+          <ul>
+            <li>Advanced Compiler Techniques</li>
+            <li>TypeScript + React</li>
+            <li>System design basics</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section container">
+      <h2 class="section-title">Projects</h2>
+      <p class="muted">A selection of projects — click to open the GitHub repo or live demo.</p>
+
+      <div class="projects-grid">
+        <!-- Project card 1 -->
+        <article class="project-card">
+          <div class="project-top">
+            <h3 class="project-title">Compiler-Lab (Mini Compiler)</h3>
+            <p class="project-desc">Lexer + Parser + Codegen for a toy language. Implemented lexical analysis and parse tree visualization.</p>
+          </div>
+          <div class="project-meta">
+            <div class="tags"><span>C++</span><span>Flex/Bison</span><span>Parsing</span></div>
+            <div class="project-links">
+              <a href="https://github.com/your-username/compiler-lab" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project card 2 -->
+        <article class="project-card">
+          <div class="project-top">
+            <h3 class="project-title">StudyHub (React App)</h3>
+            <p class="project-desc">A lightweight study-notes app with tagging and offline storage. Demo hosted on GitHub Pages.</p>
+          </div>
+          <div class="project-meta">
+            <div class="tags"><span>React</span><span>TypeScript</span><span>Netlify</span></div>
+            <div class="project-links">
+              <a href="https://github.com/your-username/studyhub" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://your-username.github.io/studyhub" target="_blank" rel="noopener">Live</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project card 3 -->
+        <article class="project-card">
+          <div class="project-top">
+            <h3 class="project-title">Algo-Visualizer</h3>
+            <p class="project-desc">Visualizations for sorting and graph algorithms with step-by-step playback and explanations.</p>
+          </div>
+          <div class="project-meta">
+            <div class="tags"><span>JS</span><span>Canvas</span><span>Algorithms</span></div>
+            <div class="project-links">
+              <a href="https://github.com/your-username/algo-visualizer" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Add more project-card blocks as needed -->
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skill-grid">
+        <div class="skill">
+          <h4>Languages</h4>
+          <p> C++, Java, JavaScript/TypeScript, Python </p>
+        </div>
+        <div class="skill">
+          <h4>Web</h4>
+          <p> HTML5, CSS3, React, REST APIs, Git, GitHub Pages </p>
+        </div>
+        <div class="skill">
+          <h4>Systems</h4>
+          <p> Compiler theory, Lexing & Parsing, Data Structures & Algorithms </p>
+        </div>
+        <div class="skill">
+          <h4>Tools</h4>
+          <p> VSCode, gdb, Make, Docker (basic) </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section container contact-section">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Let's collaborate</h3>
+          <p>If you'd like to discuss a project, internship or anything geeky — email me.</p>
+          <p><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/your-username" target="_blank" rel="noopener">github.com/your-username</a></p>
+          <p><strong>Location:</strong> India</p>
+        </div>
+
+        <form action="mailto:youremail@example.com" method="post" enctype="text/plain" class="contact-form">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" required placeholder="Your name">
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required placeholder="you@example.com">
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="6" required placeholder="Short message..."></textarea>
+          </label>
+          <div class="form-actions">
+            <button class="btn" type="submit">Send</button>
+            <button class="btn ghost" type="reset">Reset</button>
+          </div>
+          <small class="muted">Or just email me at <a href="mailto:youremail@example.com">youremail@example.com</a>.</small>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Sufiyan Raza — Built with ❤ · <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a></p>
+      <div class="socials">
+        <a href="https://github.com/your-username" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+        <a href="https://www.linkedin.com/in/your-username" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // small UI script for mobile nav & year
+    (function(){
+      const navToggle = document.getElementById('nav-toggle');
+      const nav = document.getElementById('nav');
+
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        navToggle.classList.toggle('open');
+      });
+
+      // Close nav when a link is clicked (mobile)
+      document.querySelectorAll('#nav a').forEach(a => {
+        a.addEventListener('click', () => {
+          nav.classList.remove('open');
+          navToggle.classList.remove('open');
+        });
+      });
+
+      // set year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
