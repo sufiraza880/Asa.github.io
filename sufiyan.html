@@ -435,7 +435,7 @@
           navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
           history.replaceState(null, '', `#${id}`); // update hash without jump
         });
-      }, { threshold: 0.5 });
+      }, { threshold: 1.5 });
       sections.forEach(sec => sectionObserver.observe(sec));
     })();
   </script>
